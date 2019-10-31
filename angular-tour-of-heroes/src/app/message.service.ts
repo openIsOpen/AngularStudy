@@ -12,5 +12,6 @@ export class MessageService {
 
   clear() {
     this.messages = [];
+    console.log("clear clicked");
   }
 }
