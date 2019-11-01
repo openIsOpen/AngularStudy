@@ -25,12 +25,17 @@ export class HeroDedailComponent implements OnInit {
 
   getHero():void{
     const id = this.activetedRoute.snapshot.paramMap.get('id');
-    this.heroService.getHeroe(Number.parseInt( id)).subscribe(hero=>this.hero=hero);
+    this.heroService.getHero(Number.parseInt( id)).subscribe(hero=>this.hero=hero);
   }
 
   goBack():void
   {
     this.location.back();
+  }
+
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
   }
 
 }
